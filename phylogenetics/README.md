@@ -4,6 +4,8 @@ There are many, many R packages for phylogenetics. I will tree to summarize
 them here, adding details as I gather them.
 
  1. `ape`
+     - drop.tip(phy, tip) - drop a tip or node (and its descendents)
+     - extract.clade(phy, node) - delete everything not descending from a node
 
  2. `taxize*`
 
@@ -26,3 +28,13 @@ them here, adding details as I gather them.
  5. `phyloseq` - Bioconductor package for general phylogenetics
 
  6. `OutBreakTools` - tree visualization and more ...
+
+ 7. `phytools` - a giant collection of functions for phylogenetics, a few useful things:
+     - getDescendents
+     - getSisters
+     - getParent
+     - paste.tree
+     - bind.tip(tree, tip.label, where)
+
+ 8. `geiger`
+    - tips(tree, node) - get descendents of a node
