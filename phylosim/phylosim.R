@@ -2,40 +2,22 @@
 
 library(phylosim)
 
-
-set.seed(833)
-
-cat("((t1:0.3,t2:0.3):0.2,t3:0.1);",file="3taxa.nwk")
-cat("((t1:0.3,t2:0.3):0.2,(t3:0.1,t4:0.1):0.4);",file="4taxa.nwk")
-
-s <- Simulate(PhyloSim(
-  root.seq=sampleStates( NucleotideSequence(len=50,proc=list(list(JC69())) )),
-  phylo=read.tree("3taxa.nwk")
-))
-
-# To get information on the class of s (PhyloSim)
-?PhyloSim
-# or use the field accessor
-ll(s)
-s$sequences
-s$plot()
-
-
-cat("(((t2:0.1231,t4:0.1231):0.2131,(t3:0.0284,t5:0.0284):0.3078):0.1698,t1:0.5060);",file="smalldemotree.nwk")
-
-ll(Site())
-
 # An icky global
 PSIM_FAST <- TRUE
 
 aa.seq <- AminoAcidSequence(length = 60)
 
+# different substitution matrices
 wag <- WAG()
 jtt <- JTT()
-lg <- LG()
+lg  <- LG()
 pam <- PAM()
 
 summary(wag)
+summary(jtt)
+summary(lg)
+summary(pam)
+
 plot(wag, scale = 0.8)
 
 # Construct a continuous deletor process:
